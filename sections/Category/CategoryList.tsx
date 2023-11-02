@@ -4,6 +4,7 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
 import Image from "apps/website/components/Image.tsx";
 import type { ImageWidget } from "apps/admin/widgets.ts";
+import ProductCard from "./ProductCard.tsx";
 
 export interface Category {
   tag?: string;
@@ -29,112 +30,73 @@ export interface Props {
   };
 }
 
-function CardText(
-  { tag, label, description, alignment }: {
-    tag?: string;
-    label?: string;
-    description?: string;
-    alignment?: "center" | "left";
-  },
-) {
-  return (
-    <div
-      class={`flex flex-col ${
-        alignment === "center" ? "text-center" : "text-left"
-      }`}
-    >
-      {tag && <div class="text-sm text-primary">{tag}</div>}
-      {label && <h3 class="text-lg text-base-content">{label}</h3>}
-      {description && <div class="text-sm text-neutral">{description}</div>}
-    </div>
-  );
-}
-
 function CategoryList(props: Props) {
   const id = useId();
-  const {
-    header = {
-      title: "",
-      description: "",
-    },
-    list = [
-      {
-        tag: "10% off",
-        label: "Feminino",
-        description: "Moda feminina direto de Milão",
-        href: "/feminino",
-        image:
-          "https://ik.imagekit.io/decocx/tr:w-680,h-680/https:/ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/fdcb3c8f-d629-485e-bf70-8060bd8a9f65",
-        buttonText: "Ver produtos",
-      },
-    ],
-    layout = {
-      headerAlignment: "center",
-      categoryCard: {
-        textPosition: "top",
-        textAlignment: "center",
-      },
-    },
-  } = props;
+  
+  const products = [
+		{
+			name: "Tênis de corrida Nike preto e branco",
+			price: "R$ 129,90",
+			originalPrice: "R$ 159,90",
+			imageUrl: "https://imgnike-a.akamaihd.net/1920x1920/012350ID.jpg"
+		},
+		{
+			name: "Moletom Adidas bege simples",
+			price: "R$ 59,90",
+			originalPrice: "R$ 99,90",
+			imageUrl:
+				"https://www.amilesportes.com.br/lojas/00044767/prod/059839-1.jpg"
+		},
+    {
+			name: "Camiseta Nike Dry Tiffany Feminina",
+			price: "R$ 99,90",
+			originalPrice: "R$ 149,90",
+			imageUrl: "https://static3.tcdn.com.br/img/img_prod/868773/camiseta_nike_dry_legend_crew_tiffany_feminina_5055_1_3be0fa2d4e2deff291901c8d52bccdb8.jpg"
+		},
+		{
+			name: "Camiseta Nike Dry Legend Crew",
+			price: "R$ 99,90",
+			originalPrice: "R$ 149,90",
+			imageUrl:
+				"https://static3.tcdn.com.br/img/img_prod/868773/camiseta_nike_dry_legend_crew_preta_feminina_4917_1_981665c28cc25ba1f6860ff42d815de9.jpg"
+		},
+    {
+			name: "Mochila Vans Street Sport Realm",
+			price: "R$ 79,90",
+			originalPrice: "R$ 119,90",
+			imageUrl:
+				"https://lojavirus.fbitsstatic.net/img/p/mochila-vans-street-sport-realm-backpack-black-white-checkerboard-vn0a49zj56m-72335/294308-1.jpg?w=1200&h=1200&v=no-change&qs=ignore"
+		}
+	];
 
   return (
     <div
       id={id}
-      class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content  lg:py-10"
+      class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content lg:py-10 bg-zinc-200"
     >
       <Header
-        title={header.title}
-        description={header.description || ""}
-        alignment={layout.headerAlignment || "center"}
+        title="Super ofertas!"
+        description="Veja mais"
+        alignment="center"
       />
 
       <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5">
-        {list.map((
-          { tag, label, description, href, image, buttonText },
+        {products.map((
+          { imageUrl, name, price, originalPrice },
           index,
         ) => (
           <Slider.Item
             index={index}
             class="flex flex-col gap-4 carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
           >
-            <a
-              href={href}
-              class="flex flex-col gap-4 lg:w-[280px] w-40 lg:h-auto"
-            >
-              {layout.categoryCard?.textPosition === "top" &&
-                (
-                  <CardText
-                    tag={tag}
-                    label={label}
-                    description={description}
-                    alignment={layout?.categoryCard?.textAlignment}
-                  />
-                )}
-              {image &&
-                (
-                  <figure>
-                    <Image
-                      class="card w-full"
-                      src={image}
-                      alt={description || label || tag}
-                      width={160}
-                      height={195}
-                      loading="lazy"
-                    />
-                  </figure>
-                )}
-              {layout.categoryCard?.textPosition === "bottom" &&
-                (
-                  <CardText
-                    tag={tag}
-                    label={label}
-                    description={description}
-                    alignment={layout?.categoryCard?.textAlignment}
-                  />
-                )}
-            </a>
-            {buttonText &&
-              <a href={href} class="btn">{buttonText}</a>}
+            
+            <ProductCard 
+              imageUrl={imageUrl}
+              name={name}
+              price={price}
+              originalPrice={originalPrice}
+            />
+
           </Slider.Item>
         ))}
       </Slider>
