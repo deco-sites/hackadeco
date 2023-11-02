@@ -6,7 +6,7 @@ export interface Props {
 
 const LargeProductCard = ({ imageUrl, name, discount }: Props) => {
   return (
-    <div class="m-3 bg-zinc-900 rounded-lg w-[400px] h-[200px] flex justify-between">
+    <div class="m-3 bg-zinc-900 rounded-lg w-[400px] h-[200px] flex justify-between shadow-sm">
 
       <div class="p-4 flex flex-col bg-zinc-200 w-full rounded-l-lg">
         <p class="font-medium text-lg pt-4">ATÉ {discount}% OFF</p>

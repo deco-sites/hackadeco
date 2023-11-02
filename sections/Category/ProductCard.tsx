@@ -12,7 +12,7 @@ const ProductCard = ({ imageUrl, name, price, originalPrice }: Props) => {
         <img
           alt="produto"
           src={imageUrl}
-          class="object-fill"
+          class="object-fill rounded-t-lg"
         />
       </div>
       <div class="p-4 flex flex-col bg-zinc-800 w-full rounded-b-lg">
