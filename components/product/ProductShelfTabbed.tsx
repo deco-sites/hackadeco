@@ -7,89 +7,54 @@ import Header from "$store/components/ui/SectionHeader.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import { usePlatform } from "$store/sdk/usePlatform.tsx";
-import type { Product } from "apps/commerce/types.ts";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { usePartialSection } from "deco/hooks/usePartialSection.ts";
+import LargeProductCard from "./LargeProductCard.tsx";
 
-/** @titleBy title */
-interface Tab {
-  title: string;
-  products: Product[] | null;
-}
-
-export interface Props {
-  tabs: Tab[];
-  title?: string;
-  description?: string;
-  layout?: {
-    headerAlignment?: "center" | "left";
-    headerfontSize?: "Normal" | "Large";
-  };
-  cardLayout?: cardLayout;
-  tabIndex?: number;
-  id?: string;
-}
-
-function TabbedProductShelf({
-  tabs,
-  title,
-  description,
-  layout,
-  cardLayout,
-  tabIndex,
-  id: sectionId,
-}: Props) {
+function TabbedProductShelf() {
   const id = useId();
-  const platform = usePlatform();
-  const ti = typeof tabIndex === "number"
-    ? Math.min(Math.max(tabIndex, 0), tabs.length)
-    : 0;
-  const { products } = tabs[ti];
-
-  if (!products || products.length === 0) {
-    return null;
-  }
+  
+  const products = [
+    {
+      name: "Casacos e Jaquetas",
+      discount: 60,
+      imageUrl: "https://static.netshoes.com.br/produtos/jaqueta-black-river-puffer-lisa-masculina/06/MCN-0089-006/MCN-0089-006_zoom1.jpg?ts=1695612270&ims=544x"
+    },
+    {
+      name: "Shorts de Academia",
+      discount: 40,
+      imageUrl:
+        "https://static.netshoes.com.br/produtos/short-adidas-marathon-20-feminino/06/COL-5376-006/COL-5376-006_zoom1.jpg?ts=1634268808&ims=544x"
+    },
+    {
+      name: "Bonés Esportivos",
+      discount: 60,
+      imageUrl:
+        "https://static.netshoes.com.br/produtos/bone-nike-aba-curva-featherlight-run/06/HZM-0082-006/HZM-0082-006_zoom1.jpg?ts=1698041911&ims=544x"
+    },
+    {
+      name: "Tênis de Corrida",
+      discount: 30,
+      imageUrl:
+        "https://static.netshoes.com.br/produtos/tenis-de-corrida-feminino-mizuno-wave-rider-26-roxy/18/2FU-8123-018/2FU-8123-018_zoom1.jpg?ts=1684848109&ims=544x"
+    }
+  ];
 
   return (
     <div class="w-full container  py-8 flex flex-col gap-8 lg:gap-12 lg:py-10">
-      <Header
-        title={title || ""}
-        description={description || ""}
-        fontSize={layout?.headerfontSize || "Large"}
-        alignment={layout?.headerAlignment || "center"}
-      />
-
-      <div class="flex justify-center">
-        <div class="tabs tabs-boxed">
-          {tabs.map((tab, index) => (
-            <button
-              class={`tab tab-lg ${index === ti ? "tab-active" : ""}`}
-              {...usePartialSection({ props: { tabIndex: index } })}
-            >
-              {tab.title}
-            </button>
-          ))}
-        </div>
-      </div>
 
       <div
         id={id}
         class="container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5"
       >
         <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
-          {products?.map((product, index) => (
+          {products?.map((prd, index) => (
             <Slider.Item
               index={index}
-              class="carousel-item w-[270px] sm:w-[292px] first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+              class="carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
             >
-              <ProductCard
-                product={product}
-                itemListName={title}
-                layout={cardLayout}
-                platform={platform}
-                index={index}
+              <LargeProductCard
+                name={prd.name}
+                discount={prd.discount}
+                imageUrl={prd.imageUrl}
               />
             </Slider.Item>
           ))}
@@ -108,20 +73,7 @@ function TabbedProductShelf({
           </div>
         </>
         <SliderJS rootId={id} />
-        <SendEventOnLoad
-          event={{
-            name: "view_item_list",
-            params: {
-              item_list_name: title,
-              items: products.map((product) =>
-                mapProductToAnalyticsItem({
-                  product,
-                  ...(useOffer(product.offers)),
-                })
-              ),
-            },
-          }}
-        />
+        
       </div>
     </div>
   );

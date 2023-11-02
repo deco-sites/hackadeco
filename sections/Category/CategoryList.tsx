@@ -80,7 +80,7 @@ function CategoryList(props: Props) {
         alignment="center"
       />
 
-      <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5">
+      <Slider class="carousel justify-center carousel-start gap-4 lg:gap-8 row-start-2 row-end-5">
         {products.map((
           { imageUrl, name, price, originalPrice },
           index,
