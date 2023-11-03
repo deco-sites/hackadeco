@@ -50,7 +50,7 @@ export default function ShoppableBanner(props: Props) {
   return (
     <div class="container">
       <div class="card lg:card-side rounded grid grid-cols-1 lg:grid-cols-[70%_30%]">
-        <figure class="relative">
+        <figure class="relative rounded-lg">
           <Picture>
             <Source
               media="(max-width: 767px)"
@@ -102,7 +102,7 @@ export default function ShoppableBanner(props: Props) {
           <h2 class="card-title">{title}</h2>
           <p>{text}</p>
           <div class="card-actions justify-end">
-            <a class="btn btn-primary" href={link?.href}>{link?.text}</a>
+            <a class="btn bg-zinc-700 text-zinc-50" href={link?.href}>{link?.text}</a>
           </div>
         </div>
       </div>
