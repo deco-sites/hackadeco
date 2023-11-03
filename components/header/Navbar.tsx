@@ -5,12 +5,13 @@ export interface INavItems {
     href: string 
 }
 
-interface Props {
-    navItems: INavItems[];
+export interface Props {
+    navItems?: INavItems[];
     logo?: { src: string, alt: string };
     routes?: {
-      cart: string;
-      account: string;
+        cart: string;
+        account: string;
+        search: string;
     }
 }
 
@@ -26,7 +27,7 @@ function Navbar ({
         <nav class="flex items-center w-full justify-between container">
 
             <ul class="hidden items-center gap-8 lg:flex">
-                { navItems.map(( item ) => 
+                { navItems && navItems.map(( item ) => 
                     <li class="hover:underline hover:text-white transition-all"><a href={item.href}>
                             {item.title}
                     </a></li>
@@ -34,7 +35,7 @@ function Navbar ({
             </ul>
 
             <div class="flex items-center gap-8">
-                <a class="w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-700 transition-all">
+                <a href={routes ? routes.search : "/"} class="w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-700 transition-all">
                     <img src="/svg/search-icon.svg" alt="search icon" class="w-6 h-6 block" />
                 </a>
                 <a href={routes ? routes.account : "/"} class="w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-700 transition-all">

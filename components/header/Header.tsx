@@ -13,6 +13,7 @@ export interface Props {
   routes?: {
     cart: string;
     account: string;
+    search: string;
   };
 }
 

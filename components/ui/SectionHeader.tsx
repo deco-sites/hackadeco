@@ -1,7 +1,7 @@
 interface Props {
   title?: string;
   fontSize?: "Normal" | "Large";
-  description?: string;
+  description?: { text?: string, href?: string };
   alignment: "center" | "left";
   colorReverse?: boolean;
 }
@@ -42,7 +42,7 @@ function Header(props: Props) {
                   ${props.fontSize === "Normal" ? "lg:text-xl" : "lg:text-2xl"}
                 `}
                 >
-                  {props.description}
+                  <a href={props.description.href}>{props.description.text}</a>
                 </h2>
               )}
           </div>

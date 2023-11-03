@@ -50,7 +50,7 @@ export default function ShoppableBanner(props: Props) {
   return (
     <div class="container">
       <div class="card lg:card-side rounded grid grid-cols-1 lg:grid-cols-[70%_30%]">
-        <figure class="relative">
+        <figure class="relative rounded-lg">
           <Picture>
             <Source
               media="(max-width: 767px)"
