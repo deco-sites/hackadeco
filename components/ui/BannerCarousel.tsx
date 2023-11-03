@@ -104,58 +104,26 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
         <Source
           media="(max-width: 767px)"
           fetchPriority={lcp ? "high" : "auto"}
-          src={mobile}
+          src="https://gcdnb.pbrd.co/images/5U10c8oukHeO.png?o=1"
           width={360}
           height={600}
         />
         <Source
           media="(min-width: 768px)"
           fetchPriority={lcp ? "high" : "auto"}
-          src={desktop}
-          width={1440}
-          height={600}
+          src="https://gcdnb.pbrd.co/images/QaAmU5hjvDSw.jpg?o=1"
+          width={1640}
+          height={624}
         />
         <img
-          class="object-cover w-full h-full"
+          class="object-fill w-full h-full"
           loading={lcp ? "eager" : "lazy"}
-          src={desktop}
+          src="https://gcdnb.pbrd.co/images/QaAmU5hjvDSw.jpg?o=1"
           alt={alt}
         />
       </Picture>
 
     </a>
-  );
-}
-
-function Dots({ images, interval = 0 }: Props) {
-  return (
-    <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-          @property --dot-progress {
-            syntax: '<percentage>';
-            inherits: false;
-            initial-value: 0%;
-          }
-          `,
-        }}
-      />
-      <ul class="carousel justify-center col-span-full gap-4 z-10 row-start-4">
-        {images?.map((_, index) => (
-          <li class="carousel-item">
-            <Slider.Dot index={index}>
-              <div class="py-5">
-                <div
-                  class="w-16 sm:w-20 h-0.5 rounded group-disabled:animate-progress bg-gradient-to-r from-base-100 from-[length:var(--dot-progress)] to-[rgba(255,255,255,0.4)] to-[length:var(--dot-progress)]"
-                  style={{ animationDuration: `${interval}s` }}
-                />
-              </div>
-            </Slider.Dot>
-          </li>
-        ))}
-      </ul>
-    </>
   );
 }
 
@@ -203,10 +171,6 @@ function BannerCarousel(props: Props) {
           </Slider.Item>
         ))}
       </Slider>
-
-      <Buttons />
-
-      <Dots images={images} interval={interval} />
 
       <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>

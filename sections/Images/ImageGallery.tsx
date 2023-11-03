@@ -175,30 +175,19 @@ export default function Gallery(props: Props) {
     layout?.mobile === "Symmetrical"
       ? "row-span-3"
       : index === 0 || index === 3
-      ? "row-span-3"
-      : "row-span-2";
+        ? "row-span-3"
+        : "row-span-2";
 
   const desktopItemLayout = (index: number) =>
     layout?.desktop === "Symmetrical"
       ? "sm:row-span-3"
       : index === 0 || index === 3
-      ? "sm:row-span-3"
-      : "sm:row-span-2";
+        ? "sm:row-span-3"
+        : "sm:row-span-2";
 
   return (
-    <section class="container px-4 py-8 flex flex-col gap-8 lg:gap-10 lg:py-10 lg:px-0">
-      <Header
-        title={title}
-        description={description}
-        alignment={layout?.headerAlignment || "center"}
-      />
-      <ul class="grid grid-flow-col grid-cols-2 grid-rows-6 gap-4 list-none">
-        {banners?.map((banner, index) => (
-          <li class={`${mobileItemLayout(index)} ${desktopItemLayout(index)}`}>
-            <Banner {...banner} borderRadius={props.layout?.borderRadius} />
-          </li>
-        ))}
-      </ul>
-    </section>
+    <div class="flex items-center justify-center h-[500px]">
+			<img src="https://gcdnb.pbrd.co/images/86S3ZMSCJ9de.png?o=1" alt="rewards" />
+		</div>
   );
 }

@@ -75,9 +75,9 @@ function CategoryList(props: Props) {
       class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content lg:py-10"
     >
       <Header
-        title="Super ofertas!"
-        description="Veja mais"
-        alignment="left"
+        title="Super descontos!"
+        description=""
+        alignment="center"
       />
 
       <Slider class="carousel justify-center carousel-start gap-4 lg:gap-8 row-start-2 row-end-5">

@@ -24,15 +24,6 @@ function Navbar ({
 
     return (
         <nav class="flex items-center w-full justify-between container">
-            {logo && (
-                <a
-                    href="/"
-                    class="items-center"
-                    aria-label="Store logo"
-                >
-                    <Image src={logo.src} alt={logo.alt} width={126} height={16} />
-                </a>
-            )}
 
             <ul class="hidden items-center gap-8 lg:flex">
                 { navItems.map(( item ) => 
