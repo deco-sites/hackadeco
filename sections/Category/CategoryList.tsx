@@ -2,6 +2,7 @@ import Header from "$store/components/ui/SectionHeader.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
+import Icon from "$store/components/ui/Icon.tsx";
 import ProductCard, { Props as IProductCard } from "./ProductCard.tsx";
 
 interface Props {
@@ -63,7 +64,7 @@ function CategoryList({title, description, align, productCards}: Props) {
   return (
     <div
       id={id}
-      class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content lg:py-10"
+      class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content lg:py-10 relative"
     >
       <Header
         title={title}
@@ -71,7 +72,7 @@ function CategoryList({title, description, align, productCards}: Props) {
         alignment={align}
       />
 
-      <Slider class="carousel justify-center carousel-start gap-4 lg:gap-8 row-start-2 row-end-5">
+      <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
         {cards.map((
           { imageUrl, name, price, originalPrice, coinMultiplier },
           index,
@@ -92,7 +93,18 @@ function CategoryList({title, description, align, productCards}: Props) {
           </Slider.Item>
         ))}
       </Slider>
-
+      <>
+          <div class="hidden absolute sm:block z-10 top-1/2">
+            <Slider.PrevButton class="btn btn-circle btn-outline absolute right-1/2 bg-base-100">
+              <Icon size={24} id="ChevronLeft" strokeWidth={3} />
+            </Slider.PrevButton>
+          </div>
+          <div class="hidden absolute sm:block z-10 top-1/2 right-0">
+            <Slider.NextButton class="btn btn-circle btn-outline absolute left-1/2 bg-base-100">
+              <Icon size={24} id="ChevronRight" strokeWidth={3} />
+            </Slider.NextButton>
+          </div>
+        </>
       <SliderJS rootId={id} />
     </div>
   );
