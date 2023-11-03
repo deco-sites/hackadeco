@@ -7,9 +7,9 @@ import ProductCard, { Props as IProductCard } from "./ProductCard.tsx";
 
 interface Props {
   title?: string;
-  description?: { text: string, href?: string };
+  description?: { text?: string, href?: string };
   align?: "left" | "center";
-  productCards: IProductCard[];
+  productCards?: IProductCard[];
 }
 
 function CategoryList({title, description, align, productCards}: Props) {
