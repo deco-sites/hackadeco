@@ -39,7 +39,7 @@ function TabbedProductShelf({largeCards}: Props) {
       title: "Tênis de Corrida",
       subtitle: "ATÉ 60% OFF",
       cta: "Veja Mais",
-      imageUrl: "https://static.netshoes.com.br/produtos/tenis-de-corrida-feminino-mizuno-wave-rider-26-roxy/18/2FU-8123-018/2FU-8123-018_zoom1.jpg?ts=1684848109&ims=544x"
+      imageUrl: "https://rmesportes.com.br/wp-content/uploads/2022/03/WhatsApp-Image-2022-03-29-at-15.17.24-4.jpeg"
     }
   ];
 
@@ -56,7 +56,7 @@ function TabbedProductShelf({largeCards}: Props) {
           {cards?.map((card, index) => (
             <Slider.Item
               index={index}
-              class="carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+              class="cursor-pointer carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
             >
               <LargeProductCard
                 title={card.title}

@@ -220,7 +220,7 @@ function Footer({
         {(!layout?.variation || layout?.variation == "Variation 1") && (
           <div class="flex flex-col gap-10">
             <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">
-              {_logo}
+              
               {_sectionLinks}
               {_newsletter}
             </div>
@@ -244,7 +244,7 @@ function Footer({
           <div class="flex flex-col gap-10">
             <div class="flex flex-col md:flex-row gap-10">
               <div class="flex flex-col gap-10 lg:w-1/2">
-                {_logo}
+                
                 {_social}
                 {_payments}
                 {_apps}
@@ -264,7 +264,7 @@ function Footer({
         )}
         {layout?.variation == "Variation 3" && (
           <div class="flex flex-col gap-10">
-            {_logo}
+            
             <div class="flex flex-col lg:flex-row gap-14">
               <div class="flex flex-col md:flex-row lg:flex-col md:justify-between lg:justify-normal gap-10 lg:w-2/5">
                 {_newsletter}
@@ -311,7 +311,7 @@ function Footer({
             </div>
             <Divider />
             <div class="flex flex-col md:flex-row md:justify-between gap-10 md:items-center">
-              {_logo}
+              
               <PoweredByDeco />
             </div>
           </div>
@@ -320,7 +320,7 @@ function Footer({
           <div class="flex flex-col gap-10">
             {_newsletter}
             {layout?.hide?.newsletter ? <></> : <Divider />}
-            {_logo}
+            
             <div class="flex flex-col md:flex-row gap-10 lg:gap-20 md:justify-between">
               {_sectionLinks}
               <div class="flex flex-col gap-10 md:w-2/5 lg:pl-10">

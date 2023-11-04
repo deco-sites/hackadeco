@@ -56,6 +56,14 @@ function CategoryList({title, description, align, productCards}: Props) {
 			imageUrl:
 				"https://lojavirus.fbitsstatic.net/img/p/mochila-vans-street-sport-realm-backpack-black-white-checkerboard-vn0a49zj56m-72335/294308-1.jpg?w=1200&h=1200&v=no-change&qs=ignore",
         coinMultiplier: 1
+		},
+    {
+			name: "Tênis Nike Sportswear Air Max",
+			price: 299.90,
+			originalPrice: 399.90,
+			imageUrl:
+				"https://static.netshoes.com.br/produtos/tenis-nike-sportswear-air-max-ap-masculino/06/2IC-4848-006/2IC-4848-006_zoom1.jpg?ts=1684181602&ims=544x",
+        coinMultiplier: 1
 		}
 	];
 
@@ -67,9 +75,9 @@ function CategoryList({title, description, align, productCards}: Props) {
       class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content lg:py-10 relative"
     >
       <Header
-        title={title}
-        description={description}
-        alignment={align}
+        title="Super descontos!"
+        description=""
+        alignment="center"
       />
 
       <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
@@ -79,7 +87,7 @@ function CategoryList({title, description, align, productCards}: Props) {
         ) => (
           <Slider.Item
             index={index}
-            class="flex flex-col gap-4 carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+            class="cursor-pointer flex flex-col gap-4 carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
           >
             
             <ProductCard 

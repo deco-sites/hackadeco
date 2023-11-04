@@ -5,179 +5,90 @@ import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
 import type { ImageWidget } from "apps/admin/widgets.ts";
+import RewardCard from "deco-sites/hackadeco/sections/Content/RewardCard.tsx";
 
-export interface Testimonial {
-  text?: string;
-  image?: {
-    src?: ImageWidget;
-    alt?: string;
-  };
-  user?: {
-    avatar?: ImageWidget;
-    name?: string;
-    position?: string;
-    company?: string;
-  };
-}
 
-export interface Props {
-  title?: string;
-  description?: string;
-  testimonials?: Testimonial[];
-  layout?: {
-    variation?: "Grid" | "Slider";
-    headerAlignment?: "center" | "left";
-  };
-}
-
-const DEFAULT_PROPS: Props = {
-  "title": "",
-  "description": "",
-  "testimonials": [{
-    "text":
-      "Fashion Store is my go-to online destination for all things stylish. Their vast collection of trendy clothes and accessories never disappoints. The quality is exceptional, and the prices are affordable. The website is easy to navigate, and their customer service team is friendly and responsive. I always feel like a fashionista when I shop here!",
-    "image": {
-      "src":
-        "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/e0fcbcae-0a21-4269-9605-7ef8708e58ad",
-      "alt": "Testimonal",
-    },
-    "user": {
-      "avatar": "https://avatars.githubusercontent.com/u/117045675?s=200&v=4",
-      "name": "Robert Johnson",
-      "position": "Founder",
-      "company": "RJ Agency",
-    },
-  }, {
-    "text":
-      "I can't praise Fashion Store enough! Their commitment to staying ahead of the fashion curve is evident in their diverse and up-to-date inventory. Whether I need a casual outfit or a glamorous dress, they have it all. The shopping experience is seamless, and my orders always arrive promptly. Fashion Store is a true fashion lover's paradise!",
-    "image": {
-      "src":
-        "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/e0fcbcae-0a21-4269-9605-7ef8708e58ad",
-      "alt": "Testimonal",
-    },
-    "user": {
-      "avatar": "https://avatars.githubusercontent.com/u/117045675?s=200&v=4",
-      "name": "Mary Bush",
-      "position": "Director",
-      "company": "MB & Co",
-    },
-  }, {
-    "text":
-      "Fashion Store has transformed my wardrobe. Their curated collection of clothing and accessories has helped me discover my personal style. The quality of their products is outstanding, and the prices are unbeatable. The website is visually appealing and easy to navigate. Fashion Store is my trusted companion for staying fashionable and feeling confident!",
-    "image": {
-      "src":
-        "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/e0fcbcae-0a21-4269-9605-7ef8708e58ad",
-      "alt": "Testimonal",
-    },
-    "user": {
-      "avatar": "https://avatars.githubusercontent.com/u/117045675?s=200&v=4",
-      "name": "Sandra Bullock",
-      "position": "Founder",
-      "company": "Sanlock",
-    },
-  }],
-  "layout": {
-    "variation": "Grid",
-    "headerAlignment": "center",
-  },
-};
-
-const Testimonal = ({ image, text, user }: Testimonial) => (
-  <div class="flex flex-col items-center gap-9 text-center">
-    {image?.src && (
-      <Image
-        src={image.src}
-        alt={image?.alt}
-        width={100}
-        height={100}
-      />
-    )}
-    <h3 class="text-xl lg:text-2xl">
-      {text}
-    </h3>
-    <div class="flex flex-col items-center gap-4">
-      {user?.avatar && (
-        <Image
-          src={user.avatar}
-          alt={user?.name}
-          width={60}
-          height={60}
-          class="rounded-full"
-        />
-      )}
-      <div class="flex flex-col">
-        {user?.name &&
-          (
-            <p class="text-lg">
-              {user?.name}
-            </p>
-          )}
-        {(user?.position || user?.company) &&
-          (
-            <p class="text-lg">
-              {user?.position}, {user?.company}
-            </p>
-          )}
-      </div>
-    </div>
-  </div>
-);
-
-export default function Testimonials(
-  props: Props,
-) {
+export default function Testimonials() {
   const id = useId();
-  const { title, description, testimonials, layout } = {
-    ...DEFAULT_PROPS,
-    ...props,
-  };
+  const rewards = [
+    {
+      name: "Camisa Nike Academy",
+      coins: 400,
+      imageUrl: "https://static.netshoes.com.br/produtos/camisa-nike-academy-dri-fit-masculina/75/HZM-4815-775/HZM-4815-775_zoom1.jpg?ts=1626390141&ims=544x"
+    },
+    {
+      name: "Relógio Digital Led",
+      coins: 700,
+      imageUrl:
+        "https://images-americanas.b2w.io/produtos/5622048519/imagens/pulseira-inteligente-xiaomi-mi-smart-band-7-preto-m2129b1/5622048527_1_large.jpg"
+    },
+    {
+      name: "Fone de Ouvido JBL Reflect",
+      coins: 1200,
+      imageUrl:
+        "https://images-americanas.b2w.io/produtos/5526927513/imagens/fones-de-ouvido-bluetooth-s-fio-air-dots/5526927513_1_large.jpg"
+    },
+    {
+      name: "Tênis Skechers Go Run",
+      coins: 800,
+      imageUrl: "https://static.netshoes.com.br/produtos/tenis-skechers-go-run-fast-valor-feminino/17/EUZ-6466-717/EUZ-6466-717_zoom1.jpg?ts=1695699996&ims=544x"
+    },
+    {
+      name: "Regata Under Armour Sports",
+      coins: 600,
+      imageUrl:
+        "https://static.netshoes.com.br/produtos/regata-under-armour-sports-logo-masculina/06/B78-9410-006/B78-9410-006_zoom1.jpg?ts=1695526578&ims=544x"
+    },
+    {
+      name: "Camisa Flamengo Poetry",
+      coins: 1500,
+      imageUrl:
+        "https://static.netshoes.com.br/produtos/camisa-flamengo-poetry-feminina-preta-e-vermelha/06/D40-7349-006/D40-7349-006_zoom1.jpg?ts=1695612755&ims=544x"
+    }
+  ];
 
   return (
-    <div class="w-full container px-4 py-8 flex flex-col gap-14 lg:gap-20 lg:py-10 lg:px-0">
-      <Header
-        title={title}
-        description={description}
-        alignment={layout?.headerAlignment || "center"}
-      />
+    <>
+      <div
+        class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content lg:py-10 relative"
+      >
+        <Header
+          title="Resgate com Black Points!"
+          description=""
+          alignment="center"
+        />
+        <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
+          {rewards.map((rw, index,
+          ) => (
+            <Slider.Item
+              index={index}
+              class="flex flex-col gap-4 carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+            >
 
-      {layout?.variation === "Grid" && (
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {testimonials?.map(({ image, text, user }) => (
-            <Testimonal image={image} text={text} user={user} />
+              <RewardCard
+                name={rw.name}
+                coins={rw.coins}
+                imageUrl={rw.imageUrl}
+              />
+
+            </Slider.Item>
           ))}
-        </div>
-      )}
+        </Slider>
+        <>
+          <div class="hidden absolute sm:block z-10 top-1/2">
+            <Slider.PrevButton class="btn btn-circle btn-outline absolute right-1/2 bg-base-100">
+              <Icon size={24} id="ChevronLeft" strokeWidth={3} />
+            </Slider.PrevButton>
+          </div>
+          <div class="hidden absolute sm:block z-10 top-1/2 right-0">
+            <Slider.NextButton class="btn btn-circle btn-outline absolute left-1/2 bg-base-100">
+              <Icon size={24} id="ChevronRight" strokeWidth={3} />
+            </Slider.NextButton>
+          </div>
+        </>
+        <SliderJS rootId={id} />
 
-      {layout?.variation !== "Grid" && (
-        <div
-          class="relative w-full px-8"
-          id={id}
-        >
-          <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5 w-full">
-            {testimonials?.map(({ image, text, user }, index) => (
-              <Slider.Item
-                index={index}
-                class="flex flex-col gap-4 carousel-item w-full"
-              >
-                <Testimonal image={image} text={text} user={user} />
-              </Slider.Item>
-            ))}
-          </Slider>
-          <>
-            <div class="z-10 absolute -left-2 lg:-left-8 top-1/2">
-              <Slider.PrevButton class="btn btn-circle btn-outline">
-                <Icon size={24} id="ChevronLeft" strokeWidth={3} />
-              </Slider.PrevButton>
-            </div>
-            <div class="z-10 absolute -right-2 lg:-right-8 top-1/2">
-              <Slider.NextButton class="btn btn-circle btn-outline">
-                <Icon size={24} id="ChevronRight" strokeWidth={3} />
-              </Slider.NextButton>
-            </div>
-          </>
-          <SliderJS rootId={id} />
-        </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 }
