@@ -40,7 +40,7 @@ export default function Testimonials() {
         "https://static.netshoes.com.br/produtos/regata-under-armour-sports-logo-masculina/06/B78-9410-006/B78-9410-006_zoom1.jpg?ts=1695526578&ims=544x"
     },
     {
-      name: "Camisa Flamengo Poetry Feminina",
+      name: "Camisa Flamengo Poetry",
       coins: 1500,
       imageUrl:
         "https://static.netshoes.com.br/produtos/camisa-flamengo-poetry-feminina-preta-e-vermelha/06/D40-7349-006/D40-7349-006_zoom1.jpg?ts=1695612755&ims=544x"
