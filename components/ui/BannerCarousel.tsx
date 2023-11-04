@@ -134,7 +134,7 @@ function BannerCarousel(props: Props) {
 
   return (
     <div class="">
-        <BannerItem  />
+        <BannerItem />
     </div>
   );
 }

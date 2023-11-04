@@ -24,17 +24,8 @@ function Navbar ({
 
 
     return (
-        <nav class="flex items-center w-full justify-between container">
+        <nav class="flex items-center w-full justify-center container">
 
-            <ul class="hidden items-center gap-8 lg:flex">
-                { navItems && navItems.map(( item ) => 
-                    <li class="hover:underline hover:text-white transition-all"><a href={item.href}>
-                            {item.title}
-                    </a></li>
-                )}
-            </ul>
-
-            <div class="flex items-center gap-8">
                 <a href={routes ? routes.search : "/"} class="w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-700 transition-all">
                     <img src="/svg/search-icon.svg" alt="search icon" class="w-6 h-6 block" />
                 </a>
@@ -44,7 +35,6 @@ function Navbar ({
                 <a href={routes ? routes.cart : "/"} class="w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-700 transition-all">
                     <img src="/svg/cart-icon.svg" alt="cart icon" class="w-6 h-6 block" />
                 </a>
-            </div>
         </nav>
     );
 };

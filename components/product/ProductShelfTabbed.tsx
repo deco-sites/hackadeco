@@ -56,7 +56,7 @@ function TabbedProductShelf({largeCards}: Props) {
           {cards?.map((card, index) => (
             <Slider.Item
               index={index}
-              class="carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+              class="cursor-pointer carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
             >
               <LargeProductCard
                 title={card.title}
