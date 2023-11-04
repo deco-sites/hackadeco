@@ -3,12 +3,42 @@ export interface Props {
   name: string 
   price: number 
   originalPrice: number,
+  theme?: "light" | "dark";
   coinMultiplier?: number
 }
 
-const ProductCard = ({ imageUrl, name, price, originalPrice, coinMultiplier }: Props) => {
+interface ILayout {
+  bgColor: string;
+  imageBgColor: string;
+  textColor: string;
+  discountColor: string;
+  rewardColor:  string;
+}
+
+const ProductCard = ({ imageUrl, name, price, originalPrice, theme, coinMultiplier }: Props) => {
+  theme = theme ? theme : "light";
+
+  let layout: ILayout;
+  if (theme === "dark") {
+    layout = {
+      bgColor: "bg-zinc-900",
+      imageBgColor: "bg-zinc-100",
+      textColor: "text-white",
+      discountColor: "text-zinc-500",
+      rewardColor: "text-yellow-500"
+    }
+  } else {
+    layout = {
+      bgColor: "bg-zinc-200",
+      imageBgColor: "bg-zinc-100",
+      textColor: "text-zinc-700",
+      discountColor: "text-zinc-500",
+      rewardColor: "text-yellow-500"
+    }
+  }
+
   return (
-    <div class="m-3 bg-zinc-900 rounded-lg w-60 text-white shadow-sm">
+    <div class={`m-3 bg-zinc-900 rounded-lg w-60 text-white shadow-sm`}>
       <div class="h-60 bg-zinc-100 rounded-t-lg">
         <img
           alt="produto"
