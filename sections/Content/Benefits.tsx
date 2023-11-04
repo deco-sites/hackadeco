@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
   benefits?: Array<{
     label: string;
-    icon: AvailableIcons;
+    icon: string;
     description: string;
   }>;
   layout?: {
@@ -18,7 +18,7 @@ export interface Props {
 export default function Benefits(
   props: Props,
 ) {
-  const {
+  const
     title = "",
     description = "",
     benefits = [{
@@ -33,9 +33,11 @@ export default function Benefits(
       icon: "ArrowsPointingOut",
       label: "Devolução grátis",
       description: "Veja as condições para devolver seu produto.",
-    }],
-    layout,
-  } = props;
+    }];
+    const layout = {
+      variation: "Simple",
+      headerAlignment: "center"
+    };
 
   const listOfBenefits = benefits.map((benefit, index) => {
     const showDivider = index < benefits.length - 1;
@@ -96,7 +98,7 @@ export default function Benefits(
             <Header
               title="Veja alguns de nossos benefícios"
               description={description}
-              alignment={layout?.headerAlignment || "center"}
+              alignment={"center"}
             />
             <div class="w-full flex justify-center">
               <div class="flex flex-col gap-4 lg:gap-8 w-full lg:grid grid-flow-col auto-cols-fr">
@@ -111,7 +113,7 @@ export default function Benefits(
           <Header
             title={title}
             description={description}
-            alignment={layout?.headerAlignment || "center"}
+            alignment={"center"}
           />
           <div class="w-full flex justify-center">
             <div class="grid grid-cols-2 gap-4 w-full py-6 px-4 border border-base-300 lg:gap-8 lg:grid-flow-col lg:auto-cols-fr lg:p-10">
@@ -125,7 +127,7 @@ export default function Benefits(
           <Header
             title={title}
             description={description}
-            alignment={layout?.headerAlignment || "center"}
+            alignment={"center"}
           />
           <div class="w-full flex justify-center">
             <div class="grid grid-cols-2 gap-4 w-full lg:gap-8 lg:grid-flow-col lg:auto-cols-fr">

@@ -86,18 +86,13 @@ const DEFAULT_PROPS = {
   preload: true,
 };
 
-function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
-  const {
-    alt,
-    mobile,
-    desktop,
-    action,
-  } = image;
+function BannerItem() {
+  const lcp = true
 
   return (
     <a
-      href={action?.href ?? "#"}
-      aria-label={action?.label}
+      href={"#"}
+      aria-label={"banner"}
       class="relative h-[600px] overflow-y-hidden w-full"
     >
       <Picture preload={lcp}>
@@ -109,17 +104,25 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
           height={600}
         />
         <Source
-          media="(min-width: 768px)"
+          media="(max-width: 1440px)"
           fetchPriority={lcp ? "high" : "auto"}
-          src="https://gcdnb.pbrd.co/images/QaAmU5hjvDSw.jpg?o=1"
+          src="https://gcdnb.pbrd.co/images/JFAreehmnVsf.jpg?o=1"
+          width={1440}
+          height={600}
+        />
+        <Source
+          media="(min-width: 1441px)"
+          fetchPriority={lcp ? "high" : "auto"}
+          //src="https://gcdnb.pbrd.co/images/69SxmuNWH9H0.jpg?o=1"
+          src="https://gcdnb.pbrd.co/images/kgdj18kOOrSt.jpg?o=1"
           width={1640}
           height={624}
         />
         <img
-          class="object-fill w-full h-full"
+          class="object-fill w-full"
           loading={lcp ? "eager" : "lazy"}
-          src="https://gcdnb.pbrd.co/images/QaAmU5hjvDSw.jpg?o=1"
-          alt={alt}
+          src="https://gcdnb.pbrd.co/images/69SxmuNWH9H0.jpg?o=1"
+          alt={"banner"}
         />
       </Picture>
 
@@ -127,52 +130,11 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   );
 }
 
-function Buttons() {
-  return (
-    <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
-        <Slider.PrevButton class="btn btn-circle glass">
-          <Icon
-            class="text-base-100"
-            size={24}
-            id="ChevronLeft"
-            strokeWidth={3}
-          />
-        </Slider.PrevButton>
-      </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
-        <Slider.NextButton class="btn btn-circle glass">
-          <Icon
-            class="text-base-100"
-            size={24}
-            id="ChevronRight"
-            strokeWidth={3}
-          />
-        </Slider.NextButton>
-      </div>
-    </>
-  );
-}
-
 function BannerCarousel(props: Props) {
-  const { images, preload, interval } = { ...DEFAULT_PROPS, ...props };
-
-  const id = useId();
 
   return (
-    <div
-      id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px]"
-    >
-      <Slider class="carousel carousel-center w-full col-span-full row-span-full gap-6">
-        {images?.map((image, index) => (
-          <Slider.Item index={index} class="carousel-item w-full">
-            <BannerItem image={image} lcp={index === 0 && preload} />
-          </Slider.Item>
-        ))}
-      </Slider>
-
-      <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
+    <div class="">
+        <BannerItem  />
     </div>
   );
 }

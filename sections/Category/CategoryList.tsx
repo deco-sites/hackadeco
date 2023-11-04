@@ -56,6 +56,14 @@ function CategoryList({title, description, align, productCards}: Props) {
 			imageUrl:
 				"https://lojavirus.fbitsstatic.net/img/p/mochila-vans-street-sport-realm-backpack-black-white-checkerboard-vn0a49zj56m-72335/294308-1.jpg?w=1200&h=1200&v=no-change&qs=ignore",
         coinMultiplier: 1
+		},
+    {
+			name: "Tênis Nike Sportswear Air Max",
+			price: 299.90,
+			originalPrice: 399.90,
+			imageUrl:
+				"https://static.netshoes.com.br/produtos/tenis-nike-sportswear-air-max-ap-masculino/06/2IC-4848-006/2IC-4848-006_zoom1.jpg?ts=1684181602&ims=544x",
+        coinMultiplier: 1
 		}
 	];
 
