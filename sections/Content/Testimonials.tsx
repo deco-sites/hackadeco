@@ -29,21 +29,21 @@ export default function Testimonials() {
         "https://images-americanas.b2w.io/produtos/5526927513/imagens/fones-de-ouvido-bluetooth-s-fio-air-dots/5526927513_1_large.jpg"
     },
     {
-      name: "Camisa Nike Academy",
-      coins: 400,
-      imageUrl: "https://static.netshoes.com.br/produtos/camisa-nike-academy-dri-fit-masculina/75/HZM-4815-775/HZM-4815-775_zoom1.jpg?ts=1626390141&ims=544x"
+      name: "Tênis Skechers Go Run",
+      coins: 800,
+      imageUrl: "https://static.netshoes.com.br/produtos/tenis-skechers-go-run-fast-valor-feminino/17/EUZ-6466-717/EUZ-6466-717_zoom1.jpg?ts=1695699996&ims=544x"
     },
     {
-      name: "Relógio Digital Led",
-      coins: 700,
+      name: "Regata Under Armour Sports",
+      coins: 600,
       imageUrl:
-        "https://images-americanas.b2w.io/produtos/5622048519/imagens/pulseira-inteligente-xiaomi-mi-smart-band-7-preto-m2129b1/5622048527_1_large.jpg"
+        "https://static.netshoes.com.br/produtos/regata-under-armour-sports-logo-masculina/06/B78-9410-006/B78-9410-006_zoom1.jpg?ts=1695526578&ims=544x"
     },
     {
-      name: "Fone de Ouvido JBL Reflect",
-      coins: 1200,
+      name: "Camisa Flamengo Poetry Feminina",
+      coins: 1500,
       imageUrl:
-        "https://images-americanas.b2w.io/produtos/5526927513/imagens/fones-de-ouvido-bluetooth-s-fio-air-dots/5526927513_1_large.jpg"
+        "https://static.netshoes.com.br/produtos/camisa-flamengo-poetry-feminina-preta-e-vermelha/06/D40-7349-006/D40-7349-006_zoom1.jpg?ts=1695612755&ims=544x"
     }
   ];
 

@@ -136,6 +136,7 @@ export default function Benefits(
           </div>
         </div>
       )}
+      <div class="mb-20"/>
     </>
   );
 }
