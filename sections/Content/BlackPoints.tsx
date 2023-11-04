@@ -5,12 +5,23 @@ import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
 import type { ImageWidget } from "apps/admin/widgets.ts";
-import RewardCard from "deco-sites/hackadeco/sections/Content/RewardCard.tsx";
+import RewardCard, {Props as IRewardCard} from "deco-sites/hackadeco/sections/Content/RewardCard.tsx";
 
+interface Props {
+  title?: string;
+  description?: { text?: string, href?: string };
+  align?: "left" | "center";
+  rewardCards?: IRewardCard[];
+}
 
-export default function Testimonials() {
+export default function BlackPoints({title, description, align, rewardCards}: Props) {
   const id = useId();
-  const rewards = [
+
+  title = title ?? "Resgate com Black Points!";
+  description = description ?? { text: "Veja mais", href: "/" };
+  align = align ?? "left";
+
+  const exampleCards = [
     {
       name: "Camisa Nike Academy",
       coins: 400,
@@ -47,18 +58,20 @@ export default function Testimonials() {
     }
   ];
 
+  const cards = rewardCards ? (rewardCards.length > 0 ? rewardCards : exampleCards) : exampleCards;
+
   return (
     <>
       <div
-        class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content lg:py-10 relative"
+        class="container py-8 flex flex-col gap-8 xl:gap-10 text-base-content xl:py-10 relative"
       >
         <Header
-          title="Resgate com Black Points!"
-          description=""
-          alignment="center"
+          title={title}
+          description={description}
+          alignment={align}
         />
         <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
-          {rewards.map((rw, index,
+          {cards.map((card, index,
           ) => (
             <Slider.Item
               index={index}
@@ -66,9 +79,9 @@ export default function Testimonials() {
             >
 
               <RewardCard
-                name={rw.name}
-                coins={rw.coins}
-                imageUrl={rw.imageUrl}
+                name={card.name}
+                coins={card.coins}
+                imageUrl={card.imageUrl}
               />
 
             </Slider.Item>

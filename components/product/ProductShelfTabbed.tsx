@@ -46,7 +46,7 @@ function TabbedProductShelf({largeCards}: Props) {
   const cards = largeCards ? (largeCards.length > 0 ? largeCards : cardsExamples) : cardsExamples;
 
   return (
-    <div class="w-full container  py-8 flex flex-col gap-8 lg:gap-12 lg:py-10">
+    <div class="w-full container py-8 flex flex-col gap-8 lg:gap-12 lg:py-10">
 
       <div
         id={id}
