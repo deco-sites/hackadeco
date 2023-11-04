@@ -30,3 +30,8 @@ const RewardCard = ({ imageUrl, name, coins }: Props) => {
 }
 
 export default RewardCard
+interface Props {
+  imageUrl: string
+  name: string
+  coins: number
+}
