@@ -203,15 +203,3 @@ Sometimes, it may be difficult to understand everything that's going on a
 production-ready code like this starter's components. To learn how to create
 common UI patterns with HTML and CSS only in a simpler context, take a look at
 [deco.cx's recipes](https://www.deco.cx/docs/en/recipes/customizable-sections)
-
-### Best practices
-
-The best practices for managing the project on the long run rely around
-respecting folder structure. This means:
-
-1. Add `.tsx` files on `components` folder only
-1. Add preact hooks on `sdk` folder.
-1. To make a component editable, create it on the `components` folder and add an
-   `export { default }` on the `sections` folder
-1. To add JavaScript to the browser, create a component on the `components`
-   folder and add an `export { default }` on the islands folder
